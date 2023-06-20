@@ -3,9 +3,9 @@ let bcrypt = require("bcrypt");
 let jsonwebtoken = require("jsonwebtoken");
 let login = async (req, res) => {
   try {
-    let { email, password, confirmpassword } = req.body;
+    let { email, password } = req.body;
     // checking whether all field values are entered or not
-    if (email && password && confirmpassword && password === confirmpassword) {
+    if (email && password ) {
       // checking whether the  user is present in dataBase or not
       let validUser = await users.findOne({ email });
       // comparing the current  user  login password with  previously registered password
